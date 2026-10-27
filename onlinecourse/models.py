@@ -117,7 +117,7 @@ class Question(models.Model):
 # Choice model
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=500)
+    choice_text = models.CharField(max_length=100)
     is_correct = models.BooleanField(default=False)
 
     def __str__(self):
@@ -133,4 +133,4 @@ class Submission(models.Model):
     choices = models.ManyToManyField(Choice)
 
     def __str__(self):
-        return "Submission " + str(self.id) + " by " + self.enrollment.user.username
+        return "Submission " + str(self.id) + " - Enrollment: " + str(self.enrollment.id) + ", " + self.enrollment.user.username + " in " + self.enrollment.course.name
