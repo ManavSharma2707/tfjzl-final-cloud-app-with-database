@@ -150,7 +150,7 @@ def show_exam_result(request, course_id, submission_id):
         'selected_ids': selected_ids,
         'grade': grade,
         'score': score,
-        'total_score': total_score,
+        'possible': total_score,
         'results': results,
     }
     return render(request, 'onlinecourse/exam_result_bootstrap.html', context)
